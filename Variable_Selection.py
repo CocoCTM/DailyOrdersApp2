@@ -16,6 +16,8 @@ chub_pass = "cTm2022@"
 chub_ostream = "https://apps.commercehub.com/account/login?service=https://dsm.commercehub.com/dsm/shiro-cas"
 # Home Page
 chub_home = "https://dsm.commercehub.com/dsm/gotoHome.do"
+# Packing Slip Page
+chub_ps = "https://dsm.commercehub.com/dsm/gotoViewPackslips.do"
 
 
 

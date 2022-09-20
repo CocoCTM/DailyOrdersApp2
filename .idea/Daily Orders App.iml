@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
+    <content url="file://$USER_HOME$/Downloads" />
     <content url="file://$MODULE_DIR$" />
+    <content url="file://W:/" />
+    <content url="file://Y:/User/Order Entry User" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
