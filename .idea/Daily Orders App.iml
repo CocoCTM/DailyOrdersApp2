@@ -7,5 +7,6 @@
     <content url="file://Y:/User/Order Entry User" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Order Entry User" />
   </component>
 </module>

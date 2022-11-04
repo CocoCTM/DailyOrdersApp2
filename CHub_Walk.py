@@ -74,7 +74,8 @@ def enter_user(user, pw, landing_page):
     time.sleep(5)
     browser.get(landing_page)
     time.sleep(5)
-    browser.find_element_by_id("identitySelector").click()
+    browser.find_element_by_partial_link_text("CTM Household Appliances Inc").click()
+    #browser.find_element_by_id("identitySelector").click() 2022-10-27 Replaced by new page Layout - replaced by code above
     print("CommerceHub Login Successful!")
 
 
@@ -124,7 +125,7 @@ def ps_handling(fileref, link):
     result.columns = result.iloc[0]
     result = result.iloc[1:, :]
     nav_to(link) # Navigate back to Page
-   # browser.find_element_by_xpath("//*[@id=\"dl-status-" + fileref + "\"]").click() # Download Packing Slip
+  #  browser.find_element_by_xpath("//*[@id=\"dl-status-" + fileref + "\"]").click() # Download Packing Slip
     time.sleep(2)
     return result
 
@@ -158,3 +159,11 @@ def dnwld_order_csv(searchName):
     browser.find_element_by_css_selector('.chub-button').click()
     time.sleep(5)
     browser.switch_to.window(curr_handle)
+
+
+def close_browser():
+    browser.close()
+
+
+def quit_browser():
+    browser.quit()

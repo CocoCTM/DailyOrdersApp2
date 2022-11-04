@@ -24,7 +24,7 @@ The First Section of the Code will be to set up and use the Options and Paramete
 1. Find your Computer's User Agent: 
 2. Download the ChromeDriver and add the Path: 
 """
-comp_user_agent = "user-agent= Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+comp_user_agent = "user-agent= Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
 driver_path = '/bin/chromedriver.exe'
 
 # LOGGING INTO COMMERCEHUB
@@ -78,7 +78,7 @@ if "Lowe's" in dataframe_collection:
     lowes_ord_dtl["External ID"] = lowes_ord_dtl["Sending Partner"] + lowes_ord_dtl["PO Number"].astype(str) + lowes_ord_dtl["Location"]
     lowes_ord_dtl = lsu.get_lowes_carrier(lowes_ord_dtl)
     lowes_ord_dtl = lowes_ord_dtl.drop(
-        columns=['Total', 'Order Date_y', 'Merchant', 'Merchant SKU', 'Merchant Department',
+        columns=['Total', 'Order Date_y', 'Merchant', 'Merchant Department',
                  'UPC', 'Unit Cost Currency', 'ShipTo Country', 'ShipTo Customer Number', 'ShipTo Day Phone',
                  'ShipTo First Name', 'Status', 'Substatus', 'Ship From_y', 'ShipTo State_y',
                  'Carrier'])  # DROP UNNECESSARY COLUMNS
@@ -106,7 +106,7 @@ if "The Home Depot Inc" in dataframe_collection:
         columns=['Total', 'Order Date_y', 'Merchant', 'Merchant SKU', 'Merchant Department', 'UPC',
                  'Unit Cost Currency', 'ShipTo Country', 'ShipTo Customer Number',
                  'ShipTo First Name', 'Status', 'Substatus', 'Ship From_y', 'ShipTo State_y', 'Carrier',
-                 'ShipTo Address2', 'ShipTo Address3', 'ShipTo County', 'ShipTo Email', 'ShipTo Last Name',
+                 'ShipTo Address3', 'ShipTo County', 'ShipTo Email', 'ShipTo Last Name',
                  'ShipTo Night Phone',
                  'Warehouse ID', 'Line Expected Warehouse ID'])  # DROP UNNECESSARY COLUMNS
     thd_ord_dtl['ShipTo Postal Code'] = thd_ord_dtl['ShipTo Postal Code'].astype(
@@ -132,7 +132,7 @@ if "Best Buy" in dataframe_collection:
     bb_ord_dtl = bb_ord_dtl.drop_duplicates()
     bb_ord_dtl["External ID"] = bb_ord_dtl["Sending Partner"] + bb_ord_dtl["PO Number"].astype(str) + bb_ord_dtl[
         "Location"]
-    bb_ord_dtl["Customer Order Number"] = "BB#:" + bb_ord_dtl["Customer Order Number"]
+    bb_ord_dtl["Customer Order Number"] = "BB#:" + bb_ord_dtl["Customer Order Number"].astype(str)
     bb_ord_dtl['ShipTo Postal Code'] = bb_ord_dtl['ShipTo Postal Code'].astype(
         str)  # ZIP IF NOT 5 DIGITS ADD 0 IN FRONT
     bb_ord_dtl['ShipTo Postal Code'] = bb_ord_dtl['ShipTo Postal Code'].str.strip()  # ZIP IF NOT 5
@@ -150,5 +150,7 @@ if "Best Buy" in dataframe_collection:
         + str(date.today()) + ".xlsx", index=False, header=True)
 else:
     print("No Best Buy Orders Today!")
+
+cw.quit_browser()
 
 print("Done")

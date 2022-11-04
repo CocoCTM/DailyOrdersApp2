@@ -41,7 +41,7 @@ def get_lowes_file_path():
     return file_path
 
 def get_lowes_carrier(df):
-    file_path = "Y:/User/Order Entry User/CTM Household Appliances Orders Processed/Lowe's/LOWES MATRIX - 2022-07-01.xlsx"
+    file_path = "Y:/User/Order Entry User/CTM Household Appliances Orders Processed/Lowe's/LOWES MATRIX - 2022-09-23.xlsx"
     lowes_carrier = pd.read_excel(file_path, sheet_name='SOS LTL RM Lookup Tool')
     lowes_carrier = lowes_carrier.rename(columns={"Origin St": "Ship From"})  # RENAME SHIP FROM COLUMN
     lowes_carrier = lowes_carrier.rename(columns={"Dest. St": "ShipTo State"}) # RENAME SHIP TO COLUMN
